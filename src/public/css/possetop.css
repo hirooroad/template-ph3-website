@@ -1,0 +1,632 @@
+/**
+* File Name : style.css
+* Description : POSSE課題
+*
+* ---- Table of Contents ----
+*
+* 1.0 - Common
+*    1.1 - カスタムプロパティ
+*/
+:root {
+    --dark-color: #333333;
+    --white-color: #FFFFFF;
+    --primary-color: #0071BC;
+    --primary-light-color: #F7F9FB;
+    --gray-color: #ADADAD;
+    --gray-light-color: #EEEEEE;
+    --gray-dark-color: #666666;
+    --twitter-color: #1D9BF0;
+}
+
+body {
+    color: #333333;
+    font-family: "Noto Sans JP", sans-serif;
+}
+/** 
+*    1.2 - ベーススタイル
+*    1.3 - 汎用スタイル
+*
+* 2.0 - Sections
+*    2.1 - ヘッダー
+*/
+/**  
+*    2.2 - フッター
+*    2.3 - メインビジュアル
+*    2.4 - POSSEとは
+*    2.5 - イベント
+*    2.6 - 日常生活
+*    2.7 - 公式LINE
+*
+* 3.0 - Animation, JavaScript Object
+*    3.1 - フェードイン
+*    3.2 - スライダー
+*
+*/
+
+/* 1.0 - Common */
+/* ============================================ */
+
+/**
+ * 1.1 - カスタムプロパティ
+ *
+ * https://developer.mozilla.org/ja/docs/Web/CSS/Using_CSS_custom_properties
+ */
+
+/**
+ * 1.2 - ベーススタイル
+ */
+
+/**
+ * 1.3 - 汎用スタイル
+ */
+.wrapper {
+    padding: 80px 0 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: content-box;
+}
+
+.section {
+    padding-top: 80px;
+    margin-top: -80px;
+}
+
+.section-body {
+    margin-top: 40px;
+}
+
+.title {
+    text-align: center;
+}
+
+.title-ja {
+    font-size: 36px;
+    line-height: 1.5;
+    letter-spacing: .05em;
+    display: block;
+    font-weight: bold;
+    margin:20px 0px 0px 0px;
+}
+
+.title-en {
+    font-weight: bold;
+    display: block;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: .1em;
+    margin-top: 8px;
+    color: var(--primary-color);
+}
+
+.about-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    align-items: center;
+}
+
+.about-image {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.about-text {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: .05em;
+}
+
+/* 2.0 - Sections */
+/* ============================================ */
+
+/**
+ * 2.1 - ヘッダー
+ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 以下2つは、CSSカスタムプロパティで色を指定しています。
+	var(--{指定の名前})とすることで、1.1で指定した名前の値を利用できます
+	*/
+    background-color: var(--white-color);
+    border-bottom: solid 1px var(--gray-light-color);
+    padding: 0 24px;
+    z-index: 10000;
+    transition: background-color .3s linear;
+    display: flex !important; /* 横並びにするためにflexを指定 */
+    justify-content: space-between; /* 要素の間にスペースを均等に配置 */
+    align-items: center; /* 要素を垂直方向に中央に配置 */
+    transition: background-color .4s linear;
+}
+
+.header-logo {
+    width: 148px;
+}
+
+.header-nav {
+    display: flex; /* 横並びにするためにflexを指定 */
+    gap: 70px;
+}
+
+.header-navList{
+    display: flex;
+    list-style: none;
+}
+.header-navLink {
+    font-weight: bold;
+    line-height: 1.8;
+    letter-spacing: .1em;
+    transition: color .3s linear;
+    font-size: 16px;
+    display: inline-block; /* インラインブロックにすることで中央に寄る */
+    margin: 20px;
+    text-decoration-line: none;
+    color: #18336b;
+}
+
+.header-info {
+    display: none;
+}
+
+.header-snsList {
+    display: flex; /* 横並びにするためにflexを指定 */
+    transform:translate(-20px,12px);
+    gap: 40px;
+    list-style: none;
+}
+
+.header.is-transparent{
+    background-color: transparent;
+    border: none;
+}
+
+.header.is-transparent:not(.is-open) .header-logo{
+    filter: brightness(0) invert(1);
+}
+
+.header.is-transparent:not(.is-open) .header-navLink{
+    color: #FFFFFF;
+}
+
+.header.is-transparent:not(.is-open) .header-snsLink{
+    filter: brightness(10);
+}
+
+.header.is-transparent:not(.is-open) .header-snsItem{
+    filter: brightness(0) invert(1);
+}
+
+/**
+ * 2.2 - フッター
+ */
+.footer {
+    padding-top: 70px;
+    text-align: center; /* 中央に寄せる */
+}
+
+.footer-inner {
+    display: flex; /* 横並びにするためにflexを指定 */
+    flex-direction: column; /* 縦方向に配置する */
+    align-items: center; /* 要素を垂直方向に中央に配置 */
+    gap: 24px;
+}
+
+.footer-logo {
+    width: 200px;
+    line-height: 1;
+}
+
+.footer-corporateLink {
+    color: var(--gray-dark-color);
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: .05em;
+    display: inline-flex; /* インラインブロックにすることで中央に寄る */
+    align-items: center; /* 要素を垂直方向に中央に配置 */
+    gap: 4px;
+}
+
+.footer-snsList {
+    display: flex; /* 横並びにするためにflexを指定 */
+    gap: 24px;
+    list-style: none;
+}
+
+.footer-copyright {
+    text-align: center; /* 中央に寄せる */
+    margin-top: 24px;
+    border-top: solid 1px var(--gray-light-color);
+    color: var(--gray-color);
+    font-family: var(--english-font);
+    letter-spacing: .1em;
+    line-height: 1.5;
+    font-size: 10px;
+    padding: 24px;
+}
+
+/**
+ * 2.3 - メインビジュアル
+ */
+.mainvisual {
+    background: url(../img/bg-mainvisual.jpg) center center / cover no-repeat;
+    height: 100vh;
+    padding: 40px 24px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.mainvisual-inner {
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.mainvisual-head {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.mainvisual-title {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    line-height: 1.8;
+    letter-spacing: .05em;
+    font-size: 24px;
+    padding-left: 20px;
+    padding-right: 4px;
+}
+
+.mainvisual-lead {
+    background-color: var(--white-color);
+    font-weight: bold;
+    line-height: 1.8;
+    letter-spacing: .05em;
+    font-size: 60px;
+    padding-left: 20px;
+}
+
+.mainvisual-scroll {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    color: var(--white-color);
+    font-size: 14px;
+    letter-spacing: .1em;
+    font-weight: bold;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    text-shadow: 0 0 10px rgba(51, 51, 51, .25);
+}
+
+.mainvisual-scroll::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--white-color);
+    border-radius: 100%;
+    box-shadow: 0 0 10px rgba(51, 51, 51, .25);
+}
+
+.about-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; 
+    align-items: center;
+}
+
+.about-image {
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: auto; 
+    overflow: hidden;
+}
+
+.about-text {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+}
+/**
+ * 2.4 - POSSEとは
+ */
+
+/**
+ * 2.5 - イベント
+ */
+.event-slide {
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.event-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+
+.event-item {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 320px;
+    flex-shrink: 0; /* flexの子要素で縮んだりしないように幅を変更したくない要素に指定します */
+    background-color: #f7f9fb;
+    text-align: center;
+}
+
+.event-itemBody {
+    padding: 20px;
+}
+
+.event-itemImage img {
+    width: 100%;
+    height: 200px;
+}
+
+.event-itemBody {
+    padding: 20px;
+}
+
+.event-itemDate {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+    background-color: #0071bc;
+    color: #ffffff;
+    padding: 0 12px;
+    border-radius: 5em;
+}
+
+.event-itemName {
+    margin-top: 4px;
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+.event-itemDate {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+    background-color: #0071bc;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0 12px;
+    border-radius: 5em;
+}
+
+.prev::before {
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  }
+
+.splide__arrow--prev{
+    left: 10em !important;
+}
+
+.splide__arrow--next{
+    right: 10em !important;
+}
+
+@media(max-width: 1200px){
+    .splide__arrow--prev{
+        left: 0em !important;
+    }
+    .splide__arrow--next{
+        right: 0em !important;
+    }
+}
+/**
+ * 2.6 - 日常生活
+ */
+
+.daily-list{
+    padding: 40px;
+    display: flex;
+    gap: 120px;
+    flex-direction: column;
+    width: 90%;
+}
+
+.daily-item{
+    display: flex;
+    background-color: #F7F9FB;
+    border-radius: 10px;
+    min-height: 324px;
+}
+
+.daily-item:nth-of-type(odd) {
+    flex-direction: row-reverse;
+    margin-right: 40px;
+}
+
+.daily-item:nth-of-type(even) {
+    margin-left: 40px;
+}
+
+.daily-itemImage {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 480px;
+    height: 320px;
+    flex-shrink: 0;
+    margin-top: -40px;
+}
+
+.daily-itemImage img {
+    object-fit: cover;
+}
+
+.daily-item:nth-of-type(odd) .daily-itemImage {
+    margin-right: -40px;
+}
+
+.daily-item:nth-of-type(even) .daily-itemImage {
+    margin-left: -40px;
+} 
+
+.daily-itemBody {
+    padding: 48px 56px;
+    width: 100%;
+}
+
+.daily-titleNumber {
+    font-weight: bold;
+    font-size: 58px;
+    line-height: 1;
+    letter-spacing: .05em;
+    color: #0071BC;
+}
+
+.daily-titleText {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: .05em;
+    margin-left: 20px;
+}
+
+.daily-outline {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.daily-outlineItem::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background: url(../img/icon-check.svg);
+}
+
+.daily-outlineItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    line-height: 1.5;
+    font-size: 14px;
+    letter-spacing: .1em;
+}
+
+.daily-description {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: .05em;
+    margin-top: 12px;
+}
+
+.splide.is-initialized:not(.is-active) .daily-list {
+    display: flex;
+}
+
+.cta {
+    background: url(../img/bg-cta.jpg) center center / cover no-repeat;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    padding: 40px 24px 52px;
+}
+
+.cta-title {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.cta-content {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    margin-top: 16px;
+}
+
+.cta-footer {
+    margin-top: 32px;
+}
+
+.cta-button {
+    display: block;
+    width: 315px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0071bc;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    background-color: #ffffff;
+    border: solid 1px #0071bc;
+    border-radius: 50px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.cta-button:hover {
+    background-color: #0071bc;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.cta-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 14px;
+    height: 14px;
+}
+
+.cta-button:hover .cta-icon g {
+    stroke: var(--white-color);
+}
+/**
+ * 2.7 - 公式LINE
+ */
+
+/* 3.0 - Animation, JavaScript Object */
+/* ============================================ */
+
+/**
+ * 3.1 - フェードイン
+ */
+
+/**
+ * 3.2 - スライダー
+ */
+.splide__arrow{
+    width: 40px !important;
+    height: 40px !important;
+    border: solid 1px #0071BC !important;
+    background-color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+.splide__arrow svg path {
+    fill: #0071BC;
+  }
+
+.daily-list .splide__slide{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
