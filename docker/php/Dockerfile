@@ -20,3 +20,4 @@ COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 # ワーキングディレクトリを設定
 WORKDIR /work/web
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('quizzes');
         Schema::dropIfExists('quizees');
+        Schema::dropIfExists('quizeees');
         Schema::dropIfExists('quiz_questions');
         Schema::dropIfExists('questions');
         Schema::dropIfExists('choices');

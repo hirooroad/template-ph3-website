@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quizees extends Model
 {
-    use HasFactory;
+    protected $table = 'quizeees';
+    protected $primaryKey = 'id';
+
+    public $name;
+    public $timestamps;
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

@@ -8,17 +8,14 @@ use App\Models\Question;
 use App\Models\Choices;
 use App\Models\User;
 
-
-class QuizController extends Controller
+class Quiz2Controller extends Controller
 {
     public function index()
     {
-        $quizees = Quizees::where('id', 1)->get();
+        $quizees = Quizees::where('id', 2)->get();
+        $questions = Question::where('quiz_id', 2)->get();
         $choices = Choices::all();
         $users = User::all();
-
-        $questions = Question::with('choices')->where('quiz_id', 1)->get();
-
-        return view('quizees', compact('quizees', 'questions','users'));
+        return view('quizees2', compact('quizees', 'questions', 'choices','users'));
     }
 }

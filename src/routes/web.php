@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\possetopController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\Quiz2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,7 @@ Route::middleware('auth')->group(function () {
 Route::get('possetop', [possetopController::class, 'possetop']) -> name('possetop');
 
 Route::get('quizzes/1', [QuizController::class, 'index']) -> name('quizzes1');
+
+Route::get('quizzes/2', [Quiz2Controller::class, 'index']) -> name('quizzes2');
 
 require __DIR__.'/auth.php';
