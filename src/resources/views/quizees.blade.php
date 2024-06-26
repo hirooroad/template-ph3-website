@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ITクイズ | POSSE 初めてのWeb制作</title>
   <!-- スタイルシート読み込み -->
-  <link rel="stylesheet" href="../assets/styles/common.css">
+  <link rel="stylesheet" href="../css/posseQuiz.css">
   <!-- Google Fonts読み込み -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
 
 <body>
   <header id="js-header" class="l-header p-header">
-    <div class="p-header__logo"><img src="../assets/img/logo.svg" alt="POSSE"></div>
+    <div class="p-header__logo"><img src="../img/logo.svg" alt="POSSE"></div>
     <button class="p-header__button" id="js-headerButton"></button>
     <div class="p-header__inner">
       <div class="p-header__official">
@@ -65,8 +65,10 @@
       @foreach ($questions as $question)
       <section class="p-quiz-box js-quiz" data-quiz="0">
       @php
-                var_dump($question);
-            @endphp
+        echo('<pre>');
+          var_dump($question);
+        echo('</pre>');
+      @endphp
         <div class="p-quiz-box__question">
           <h2 class="p-quiz-box__question__title">
             <span class="p-quiz-box__label">Q{{$question->id}}</span>
@@ -132,7 +134,7 @@
     <div class="l-footer__inner">
       <div class="p-footer__siteinfo">
         <span class="p-footer__logo">
-          <img src="../assets/img/logo.svg" alt="POSSE">
+          <img src="../img/logo.svg" alt="POSSE">
         </span>
         <a href="https://posse-ap.com/" target="_blank" rel="noopener noreferrer"
           class="p-footer__siteinfo__link">POSSE公式サイト</a>
