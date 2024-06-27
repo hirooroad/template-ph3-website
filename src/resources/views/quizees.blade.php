@@ -50,8 +50,6 @@
     </div>
   </header>
   <!-- /.l-header .p-header -->
-
-
   <main class="l-main">
     <section class="p-hero p-quiz-hero">
       <div class="l-container">
@@ -65,17 +63,17 @@
       @foreach ($questions as $question)
       <section class="p-quiz-box js-quiz" data-quiz="0">
       @php
-        echo('<pre>');
-          var_dump($question);
-        echo('</pre>');
-      @endphp
+    echo('</pre>');
+    dd($question);
+    echo('</pre>');
+    @endphp
         <div class="p-quiz-box__question">
           <h2 class="p-quiz-box__question__title">
-            <span class="p-quiz-box__label">Q{{$question->id}}</span>
-            <span class="p-quiz-box__question__title__text">{{$question->text}}</span>
+            <span class="p-quiz-box__label">Q{{$question['id']}}</span>
+            <span class="p-quiz-box__question__title__text">{{$question['text']}}</span>
           </h2>
           <figure class="p-quiz-box__question__image">
-            <img src="../assets/img/quiz/{{$question->image}}" alt="">
+            <img src="../assets/img/quiz/{{$question['image']}}" alt="">
           </figure>
         </div>
         <div class="p-quiz-box__answer">

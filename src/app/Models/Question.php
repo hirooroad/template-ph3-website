@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $table = 'quiz_questions';
+    protected $table = 'questions';
     protected $primaryKey = 'id';
 
     protected $fillable = [
@@ -25,11 +25,11 @@ class Question extends Model
 
     public function choices()
     {
-        return $this->hasMany(Choices::class);
+        return $this->hasMany(Choice::class);
     }
 
     public function quiz()
     {
-        return $this->belongsTo(Quizees::class);
+        return $this->belongsTo(Quiz::class);
     }
 }

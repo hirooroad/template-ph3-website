@@ -24,13 +24,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quizeees', function (Blueprint $table) {
+        Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->string('name')->comment('カテゴライズしたクイズ名 ex.) ITクイズ');
             $table->timestamps();
         });
 
-        Schema::create('quiz_questions', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('image')->comment('設問画像 ex.) /image/sample.jpg');
             $table->string('text')->comment('設問 ex.) 日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？');
@@ -38,7 +38,7 @@ return new class extends Migration
             $table->unsignedBigInteger('quiz_id');
             $table->timestamps();
 
-            $table->foreign('quiz_id')->references('id')->on('quizeees');
+            $table->foreign('quiz_id')->references('id')->on('quizzes');
         });
 
         Schema::create('choices', function (Blueprint $table) {
@@ -48,7 +48,7 @@ return new class extends Migration
             $table->boolean('is_correct');
             $table->timestamps();
 
-            $table->foreign('question_id')->references('id')->on('quiz_questions');
+            $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 
