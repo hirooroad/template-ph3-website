@@ -14,10 +14,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
     rel="stylesheet">
-  <script src="./assets/scripts/common.js" defer></script>
-  <script src="./assets/scripts/quiz.js" defer></script>
-  <script src="./assets/scripts/quiz2.js" defer></script>
-  <script src="./assets/scripts/quiz3.js" defer></script>
+  <script src="{{ asset('js/common.js') }}" defer></script>
+  <script src="{{ asset('js/quiz.js') }}" defer></script>
+  <script src="{{ asset('js/quiz2.js') }}" defer></script>
+  <script src="{{ asset('js/quiz3.js') }}" defer></script>
 </head>
 
 <body>
@@ -34,6 +34,8 @@
         <a href="" class="p-header__official__link--website">POSSE 公式サイト<i class="u-icon__link"></i></a>
       </div>
       <ul class="p-header__sns p-sns">
+        <li class="p_sns__item">
+        </li>
         <li class="p-sns__item">
           <a href="https://twitter.com/posse_program" target="_blank" rel="noopener noreferrer" class="p-sns__item__link"
             aria-label="Twitter">
@@ -55,25 +57,32 @@
       <div class="l-container">
         <h1 class="p-hero__title">
           <span class="p-hero__title__label">POSSE課題</span>
-          <span class="p-hero__title__inline">ITクイズ</span>
+          <span class="p-hero__title__inline">{{$quiz->name}}</span>
         </h1>
       </div>
     </section>
+    @if (session('message'))
+    <div class="p-quiz-edit-message">
+      {{ session('message') }}
+    </div>
+  @endif
     <div class="p-quiz-container l-container">
-      @foreach ($questions as $question)
-      <section class="p-quiz-box js-quiz" data-quiz="0">
-      @php
-    echo('</pre>');
-    dd($question);
-    echo('</pre>');
+    @php
+      $quiz_count = 0;
     @endphp
+      @foreach ($quiz->questions as $question)
+      <section class="p-quiz-box js-quiz" data-quiz="0">
         <div class="p-quiz-box__question">
           <h2 class="p-quiz-box__question__title">
-            <span class="p-quiz-box__label">Q{{$question['id']}}</span>
-            <span class="p-quiz-box__question__title__text">{{$question['text']}}</span>
+            <span class="p-quiz-box__label">Q
+            @php
+              echo ++$quiz_count;
+            @endphp
+            </span>
+            <span class="p-quiz-box__question__title__text">{{$question->text}}</span>
           </h2>
           <figure class="p-quiz-box__question__image">
-            <img src="../assets/img/quiz/{{$question['image']}}" alt="">
+            <img src="{{ asset('storage/img/' . $question->image) }}" alt="">
           </figure>
         </div>
         <div class="p-quiz-box__answer">
@@ -91,10 +100,22 @@
             <p class="p-quiz-box__answer__correct__title js-answerTitle"></p>
             <p class="p-quiz-box__answer__correct__content">
               <span class="p-quiz-box__answer__correct__content__label">A</span>
-              <span class="js-answerText"></span>
+              <span class="js-answerText">ああああ</span>
             </p>
           </div>
         </div>
+        <a href="{{route('quiz_edit', $question->id)}}" class="p_edit__quiz__button">
+            <button class="p_edit__quiz__button" aria-label="Edit Quiz">
+              編集
+            </button>
+          </a>
+            <form method="post" action="{{ route('quiz_delete', $question->id) }}">
+            @csrf
+            @method('DELETE')
+            <button class="p_delete__quiz__button" aria-label="Delete Quiz" onclick="return confirm('本当にこのクイズを削除してもいいですか？')">
+              削除
+            </button>
+            </form>
       </section>
       @endforeach
       <!-- ./p-quiz-box -->

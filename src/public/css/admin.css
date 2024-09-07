@@ -1,0 +1,89 @@
+* {
+    color: #333;
+    font-size: 16px;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #F7ECDE;
+  }
+  header {
+    height: 60px;
+    background-color: #54BAB9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 24px;
+  }
+  
+  aside {
+    background-color: #E9DAC1;
+    padding: 1%;
+  }
+  
+  main {
+    background-color: #F7ECDE;
+    padding: 1%;
+    width: 100%;
+  }
+  
+  .wrapper {
+    display: flex;
+    height: calc(100vh - 60px);
+  }
+  
+  aside nav ul {
+    list-style: none;
+    padding: 0;
+    padding-left: 0;
+  }
+  
+  li {
+    padding-bottom: 16px;
+    width: max-content;
+  }
+  
+  li:last-child {
+    padding-bottom: 0;
+  }
+  
+  aside nav ul a {
+    text-decoration: none;
+  }
+  
+  .question-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .submit {
+    background-color: transparent;
+    border: none;
+  }
+  
+  button.submit {
+    background-color: #18978F;
+    color: #fff;
+  }
+  
+  .form-choices-container {
+    display: flex;
+  }
+  
+  .form-check-container {
+    display: flex;
+    gap: 10px;
+  }
+
+  .form-radio-button {
+    width: 20px;
+    height: 20px;
+    color:#18978F;
+    gap: 10px;
+  }
+
+  .form-radio-label {
+    color: #18978F;
+    margin-bottom: 5px;
+    transform: translateY(-4px);
+  }

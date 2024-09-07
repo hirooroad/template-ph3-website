@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Choice extends Model
 {
+    use HasFactory;
+
+    use SoftDeletes;
+
     protected $table = 'choices';
     protected $primaryKey = 'id';
 
@@ -15,11 +20,6 @@ class Choice extends Model
         'text',
         'is_correct',
     ];
-
-    public $question_id;
-    public $text;
-    public $is_correct;
-    public $timestamps;
 
     public function question()
     {

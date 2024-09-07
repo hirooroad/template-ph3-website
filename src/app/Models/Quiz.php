@@ -10,9 +10,6 @@ class Quiz extends Model
     protected $table = 'quizzes';
     protected $primaryKey = 'id';
 
-    public $name;
-    public $timestamps;
-
     public function questions()
     {
         return $this->hasMany(Question::class);

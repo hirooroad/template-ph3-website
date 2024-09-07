@@ -12,10 +12,13 @@ class Quiz2Controller extends Controller
 {
     public function index()
     {
+
         $quizees = Quiz::where('id', 2)->get();
-        $questions = Question::where('quiz_id', 2)->get();
         $choices = Choice::all();
         $users = User::all();
-        return view('quizees2', compact('quizees', 'questions', 'choices','users'));
+
+        $questions = Question::with('choices')->where('quiz_id', 2)->get();
+
+        return view('quizees2', compact('quizees', 'questions','users' , 'choices'));
     }
 }

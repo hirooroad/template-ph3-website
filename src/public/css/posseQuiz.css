@@ -532,6 +532,37 @@ body {
   width: 50px;
 }
 
+.p_edit__quiz__button {
+  background-color: #0071bc;
+  border-radius: 50px;
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  padding: 8px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: 10px;
+}
+.p_delete__quiz__button {
+  background-color: #e34e70;
+  border-radius: 50px;
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: 10px;
+}
+
 .p-line {
   margin-top: 64px;
 }
@@ -821,6 +852,14 @@ body {
 .u-icon__twitter:before {
   content: "\ea96";
 }
+.p-quiz-edit-message {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-top: 16px;
+  text-align: center;
+  color: red;
+}
+
 @media not all and (min-width: 768px) {
   .p-header__inner {
     background-color: #fff;

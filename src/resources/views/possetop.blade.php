@@ -19,6 +19,9 @@
             <li class="header-navItem">
                 <a href="#daily" class="header-navLink">日常生活</a>
             </li>
+            <li class="header-navItem">
+                <a href="{{ route('quizzes1', 1) }}" class="header-navLink">クイズ</a>
+            </li>
         </ul>
         <ul class="header-info">
             <li>
